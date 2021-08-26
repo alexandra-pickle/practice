@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+          font-family: 'Courier New', Courier, monospace;
+          font-style: normal;
+          color: green;
+          font-size: 16px;
+        }
+        </style>
+    <body>
+       
+    </body>
+
+    <script type="text/javascript" language="javascript">
+        let rows = 0;
+    
+        while(rows < 1 || rows >8) {
+            let number = prompt("Enter a number between 1 and 8:");
+            rows = Number(number);
+        }
+        let newDiv = document.createElement("div");
+    
+        for (let i=0; i<rows; i++) {
+            let line = "";
+    
+            for (let j=rows-1; j>=0; j--) {
+                if (j <= i) {
+                    line += "#";
+                } else {
+                    line = line + "&nbsp";
+                }
+            }
+            line += " ";
+    
+            for (let k=0; k<rows; k++) {
+                if (k <= i) {
+                    line += "#";
+                } else {
+                    line = line + "&nbsp";
+                }
+            }
+            let newLine = document.createElement("span");
+            newLine.innerHTML = line + "<br />";
+            newDiv.appendChild(newLine);
+        }
+        document.body.appendChild(newDiv);
+    
+    </script>
+</html>
+
