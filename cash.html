@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+          font-family: 'Courier New', Courier, monospace;
+          font-style: normal;
+          font-size: 16px;
+        }
+        </style>
+    <body></body>
+
+    <script type="text/javascript" language="javascript">
+        //  Program calculates how many coins it takes to give change
+
+        let number;
+        let coinCounter = 0;
+
+        while(!number || typeof(number) == NaN || number < 0) {
+            number = Number(prompt("How much change is owed?"));
+        }
+
+        const coins = [0.25, 0.10, 0.05, 0.01];
+
+        for (let i=0; i<coins.length; i++) {
+            coinCounter += Math.floor(number / coins[i]);
+            number = ((number * 100) - ((coins[i] * Math.floor(number / coins[i])) * 100)) / 100;
+        }
+        
+        let newDiv = document.createElement('div');
+        newDiv.innerHTML = "<span>Number of coins: " + coinCounter + "</span>";
+        document.body.appendChild(newDiv);
+    </script>
+</html>
