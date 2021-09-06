@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <style>
+
+    </style>
+    <body>
+
+    </body>
+    <script type="text/javascript" language="javascript">
+    //  Using Luhn's algorithm, checks if the credit card number is authentic
+
+    //  Check for valid input
+    let isValidInput = false;
+    let card;
+
+    while (!isValidInput) {
+        card = prompt("Enter card number: ");
+        if (!isNaN(card) && Number.isInteger(Number(card))) {
+            isValidInput = true;
+        }
+    }
+
+    cardNumber = card.split("");
+
+    //  Multiply every other digit by 2, starting with the number’s second-to-last digit, and then add those products’ digits together.
+    let step1Products = "";
+    let step2Numbers = "";
+
+    let step1Index = cardNumber.length - 2;
+    for (let i=cardNumber.length - 1; i >= 0; i--) {
+        if (i === step1Index) {
+            step1Products += cardNumber[i] * 2;
+            step1Index -= 2;
+        } else {
+            step2Numbers += cardNumber[i];
+        }
+    }
+
+    let sum = 0;
+
+    for (let j=0; j < step1Products.length; j++) {
+        sum += Number(step1Products[j]);
+    }
+
+    //  Add the sum to the sum of the digits that weren’t multiplied by 2.
+    for (let k=0; k < step2Numbers.length; k++) {
+        sum += Number(step2Numbers[k]);
+    }
+
+    let newDiv = document.createElement("div");
+
+    //  If the total’s last digit is 0 (or, put more formally, if the total modulo 10 is congruent to 0), the number is valid!
+    if (sum % 10 === 0) {
+        if (cardNumber[0] === '4') {
+            newDiv.textContent = `VISA`;
+        } else {
+            newDiv.textContent = `VALID`;
+        }
+    } else {
+        newDiv.textContent = `INVALID`;
+    }
+    document.body.appendChild(newDiv);
+
+    </script>
+</html>

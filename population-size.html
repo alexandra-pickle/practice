@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <style>
+
+    </style>
+    <body>
+
+    </body>
+    <script type="text/javascript" language="javascript">
+    //  Calculates the number of years it takes to grow population from start to end sizes
+
+    let startSize = 0;
+    let endSize = 0;
+    let number;
+    let years = 0;
+    
+    while (startSize < 9) {
+        startSize = parseInt(prompt("Enter the starting population size: "));
+    }
+
+    while (endSize < startSize) {
+        endSize = parseInt(prompt("Enter the ending population size: "));
+    }
+
+    while (startSize < endSize) {
+        startSize = startSize + Math.trunc(startSize / 3) - Math.trunc(startSize / 4);
+        years++;
+    }
+
+    let newDiv = document.createElement("div");
+    newDiv.textContent = `${years} years`;
+    document.body.appendChild(newDiv);
+
+    </script>
+</html>
