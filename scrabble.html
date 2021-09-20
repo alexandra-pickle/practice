@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <style>
+
+    </style>
+    <body>
+
+    </body>
+    <script type="text/javascript" language="javascript">
+    //  Scrabble
+
+    let word1;
+    let word2;
+
+    word1 = prompt("First player, enter word: ");
+    word2 = prompt("Second player, enter word: ");
+
+    const word1Value = getStringValue(word1);
+    const word2Value = getStringValue(word2);
+
+    let newDiv = document.createElement("div");
+
+    if (word1Value === word2Value) {
+        newDiv.textContent = "It's a tie";
+    } else if (word1Value > word2Value) {
+        newDiv.textContent = "Player 1 wins!";
+    } else {
+        newDiv.textContent("Player 2 wins!");
+    }
+
+    document.body.appendChild(newDiv);
+
+
+    function getStringValue(word) {
+        let counter = 0;
+        for (let i=0; i< word.length; i++) {
+            counter = counter + getCharValue(word.charAt(i));
+        }
+        return counter;
+    }
+
+    function getCharValue(character) {
+        switch (character.toLowerCase()) {
+            case 'a': 
+            case 'e':
+            case 'i':
+            case 'l':
+            case 'n':
+            case 'o':
+            case 'r':
+            case 's':
+            case 't':
+            case 'u':
+                return 1;
+            case 'd':
+            case 'g':
+                return 2;
+            case 'b': 
+            case 'c':
+            case 'm':
+            case 'p': 
+                return 3;
+            case 'f':
+            case 'h':
+            case 'v':
+            case 'w':
+            case 'y':
+                return 4;
+            case 'k':
+                return 5;
+            case 'j':
+            case 'x':
+                return 8;
+            case 'q':
+            case 'z':
+                return 10;
+            default:
+                return 0;
+    }
+    }
+
+    </script>
+</html>
