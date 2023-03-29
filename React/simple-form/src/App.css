@@ -1,0 +1,51 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+}
+
+.width200 {
+  width: 200px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  text-align: left;
+}
+
+.submit {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10%;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.justify-content-right {
+  justify-content: right;
+}
+
+.v-center {
+  align-items: center;
+}
+
+.cancel {
+  border: none;
+  background-color: inherit;
+  margin: 0 24px;
+  text-decoration: underline;
+  cursor: pointer;
+}
